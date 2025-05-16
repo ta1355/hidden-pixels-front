@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import postsReducer from "../features/posts/postsSlice";
+import gamesReducer from "../features/games/gamesSlice";
 
 export const store = configureStore({
-  reducer: {
-    posts: postsReducer,
-  },
+  reducer: { games: gamesReducer },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
