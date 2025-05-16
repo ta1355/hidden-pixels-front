@@ -48,6 +48,17 @@ const gamesSlice = createSlice({
       .addCase(fetchGames.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message ?? "데이터 오류";
+      })
+      .addCase(searchGames.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(searchGames.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.items = action.payload;
+      })
+      .addCase(searchGames.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message ?? "검색 오류";
       });
   },
 });
